@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gérer les administrateurs</title>
+    <link rel="stylesheet" href="../../css/parametre.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <a href="../../index.html" class="btn-retour">
+      <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+    </a>
+    <div class="admin-add-container">
+      <h1><i class="fa-solid fa-users-cog"></i> Gérer les administrateurs</h1>
+      <div class="input-group">
+        <label for="search">Rechercher</label>
+        <input type="text" id="search" placeholder="Nom, prénom ou email..." />
+      </div>
+      <div class="admin-list">
+        <h2>Liste des administrateurs</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Rôle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Jean Dupont</td>
+              <td>jean.dupont@email.com</td>
+              <td>Super Administrateur</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Marie Kamba</td>
+              <td>marie.kamba@email.com</td>
+              <td>Administrateur</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Ali Ben</td>
+              <td>ali.ben@email.com</td>
+              <td>Modérateur</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <form class="admin-delete-form">
+        <div class="input-group">
+          <label for="delete-admin"
+         Supprimer un administrateur
+            (ID ou nom)</label
+          >
+          <input
+            type="text"
+            id="delete-admin"
+            name="delete-admin"
+            placeholder="Entrer l'ID ou le nom"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-supprimer-admin">
+          <i class="fa-solid fa-trash"></i> Supprimer
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suivi des Épargnes</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header-mw">
+      <div class="header-content">
+        <div class="title-block">
+          <h1>Suivi des Épargnes</h1>
+          <p>Ajouter ou consulter les dépôts d'épargne</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-membres">
+      <form class="form-membre">
+        <div class="input-group">
+          <label for="numero-compte">Numéro de compte</label>
+          <input type="text" id="numero-compte" name="numero-compte" required />
+        </div>
+        <div class="input-group">
+          <label for="date-depot">Date du dépôt</label>
+          <input type="date" id="date-depot" name="date-depot" required />
+        </div>
+        <div class="input-group">
+          <label for="montant-depose">Montant déposé</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="montant-depose"
+              name="montant-depose"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-montant-depose">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="cumul-depots">Cumul des dépôts</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="cumul-depots"
+              name="cumul-depots"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-cumul-depots">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="solde-actuel">Solde actuel</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="solde-actuel"
+              name="solde-actuel"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-solde-actuel">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <button type="submit" class="btn-ajouter-membre">
+          <i class="fa-solid fa-piggy-bank"></i> Ajouter l'épargne
+        </button>
+      </form>
+    </main>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

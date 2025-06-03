@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion des Crédits</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body>
+    <header class="header-mw">
+      <a href="../index.html" class="btn-retour" style="margin-right: 18px">
+          <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+        </a>
+      <div class="header-content">
+        <div class="title-block">
+          <h1>Gestion des Crédits</h1>
+          <p>Ajouter ou consulter les crédits accordés</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-membres">
+      <form class="form-membre">
+        <div class="input-group">
+          <label for="numero-compte">Numéro de compte</label>
+          <input type="text" id="numero-compte" name="numero-compte" required />
+        </div>
+        <div class="input-group">
+          <label for="date-pret">Date du prêt</label>
+          <input type="date" id="date-pret" name="date-pret" required />
+        </div>
+        <div class="input-group">
+          <label for="montant-pret">Montant du prêt</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="montant-pret"
+              name="montant-pret"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-montant-pret">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="taux-interet">Taux d'intérêt (%)</label>
+          <input type="number" id="taux-interet" name="taux-interet" min="0" step="0.01" required placeholder="Ex: 5" />
+        </div>
+        <div class="input-group">
+          <label for="duree-pret">Durée du prêt (mois)</label>
+          <input type="number" id="duree-pret" name="duree-pret" min="1" step="1" required placeholder="Ex: 12" />
+        </div>
+        <div class="input-group">
+          <label for="echeance">Échéance</label>
+          <input type="date" id="echeance" name="echeance" required />
+        </div>
+        <div class="input-group">
+          <label for="montant-rembourse">Montant remboursé</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="montant-rembourse"
+              name="montant-rembourse"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-montant-rembourse">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="solde-restant">Solde restant</label>
+          <div class="input-devise">
+            <input
+              type="number"
+              id="solde-restant"
+              name="solde-restant"
+              min="0"
+              step="0.01"
+              required
+              placeholder="Montant"
+            />
+            <select class="select-devise" name="devise-solde-restant">
+              <option value="CDF">FC</option>
+              <option value="USD">$</option>
+            </select>
+            <span class="montant-affiche"></span>
+          </div>
+        </div>
+        <button type="submit" class="btn-ajouter-membre">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Ajouter le crédit
+        </button>
+      </form>
+    </main>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

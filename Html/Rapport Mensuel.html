@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapport Mensuel - Coopérative Mwangaza Wetu</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header-mw">
+      <div class="header-content">
+        <a href="../index.html" class="btn-retour" style="margin-right: 18px">
+          <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+        </a>
+        <div class="title-block">
+          <h1>Rapport Mensuel</h1>
+          <p>Évaluation des activités financières de la coopérative</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-membres">
+      <section
+        class="rapport-section"
+        style="
+          background: #f7fafc;
+          border-radius: 14px;
+          max-width: 900px;
+          margin: 32px auto;
+          padding: 32px;
+        "
+      >
+        <form class="form-rapport" style="max-width: 500px; margin: 24px auto">
+          <div class="input-group">
+            <label for="mois">Mois concerné</label>
+            <input type="month" id="mois" name="mois" required />
+          </div>
+          <div class="input-group">
+            <label for="total-depots">Total des dépôts</label>
+            <div class="input-devise">
+              <input
+                type="number"
+                id="total-depots"
+                name="total-depots"
+                min="0"
+                step="0.01"
+                required
+                placeholder="Montant"
+              />
+              <select class="select-devise" name="devise-total-depots">
+                <option value="CDF">FC</option>
+                <option value="USD">$</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="total-retraits">Total des retraits</label>
+            <div class="input-devise">
+              <input
+                type="number"
+                id="total-retraits"
+                name="total-retraits"
+                min="0"
+                step="0.01"
+                required
+                placeholder="Montant"
+              />
+              <select class="select-devise" name="devise-total-retraits">
+                <option value="CDF">FC</option>
+                <option value="USD">$</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="total-credits">Total des crédits accordés</label>
+            <div class="input-devise">
+              <input
+                type="number"
+                id="total-credits"
+                name="total-credits"
+                min="0"
+                step="0.01"
+                required
+                placeholder="Montant"
+              />
+              <select class="select-devise" name="devise-total-credits">
+                <option value="CDF">FC</option>
+                <option value="USD">$</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="interets-percus">Intérêts perçus</label>
+            <div class="input-devise">
+              <input
+                type="number"
+                id="interets-percus"
+                name="interets-percus"
+                min="0"
+                step="0.01"
+                required
+                placeholder="Montant"
+              />
+              <select class="select-devise" name="devise-interets-percus">
+                <option value="CDF">FC</option>
+                <option value="USD">$</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="benefice-net">Bénéfice net</label>
+            <div class="input-devise">
+              <input
+                type="number"
+                id="benefice-net"
+                name="benefice-net"
+                min="0"
+                step="0.01"
+                required
+                placeholder="Montant"
+              />
+              <select class="select-devise" name="devise-benefice-net">
+                <option value="CDF">FC</option>
+                <option value="USD">$</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-ajouter-membre">
+            <i class="fa-solid fa-chart-line"></i> Enregistrer le rapport
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
