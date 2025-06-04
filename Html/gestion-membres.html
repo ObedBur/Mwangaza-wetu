@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestion des Membres</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../Css/membres.css">
+    <link rel="stylesheet" href="../Css/membres.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
   </head>
   <body>
     <header class="header-mw">
-      <a href="../index.html" class="btn-retour" style="margin-right: 18px">
-          <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
-        </a>
+      
       <div class="header-content">
         <div class="title-block">
           <h1>Gestion des Membres</h1>
@@ -63,7 +65,80 @@
         </button>
       </form>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
-    <script src="../js/gestion-membres.js"></script>
+    <script>
+      const input = document.querySelector("#telephone");
+      const iti = window.intlTelInput(input, {
+        initialCountry: "cd",
+        utilsScript:
+          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      });
+
+      document.querySelector(".form-membre").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const numeroCompte = document.getElementById("numero-compte").value.trim();
+        const nomComplet = document.getElementById("nom-complet").value.trim();
+        const dateAdhesion = document.getElementById("date-adhesion").value;
+        const typeCompte = document.getElementById("type-compte").value;
+        const statut = document.getElementById("statut").value;
+        const numeroInternational = iti.getNumber();
+
+      
+        if (!/^\d+$/.test(numeroCompte)) {
+          alert("Erreur : Le numéro de compte doit contenir uniquement des chiffres.");
+          return;
+        }
+
+        if (nomComplet.split(" ").length !== 3) {
+          alert("Erreur : Le nom complet doit contenir nom, post-nom et prénom.");
+          return;
+        }
+
+        if (!iti.isValidNumber()) {
+          alert("Erreur : Le numéro de téléphone est invalide.");
+          return;
+        }
+
+        const membre = {
+          "numero-compte": numeroCompte,
+          "nom-complet": nomComplet,
+          "telephone": numeroInternational,
+          "date-adhesion": dateAdhesion,
+          "type-compte": typeCompte,
+          "statut": statut,
+        };
+
+        try {
+          const response = await fetch("http://localhost:5000/api/membres", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(membre),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            alert("✅ " + result.message);
+            // Déclenche le téléchargement automatique du fichier membres.xlsx
+            const link = document.createElement('a');
+            link.href = "http://localhost:5000/membres.xlsx";
+            link.download = "membres.xlsx";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            e.target.reset();
+            iti.setNumber(""); // reset champ téléphone
+          } else {
+            alert("❌ " + result.message);
+          }
+      } catch (error) {
+          console.error("Erreur lors de l'envoi des données :", error);
+          alert("❌ Une erreur est survenue lors de l'envoi des données. Veuillez réessayer.");
+        }
+      });
+    </script>
   </body>
 </html>

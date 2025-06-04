@@ -13,7 +13,7 @@
   <body>
     <header class="header-mw">
       <div class="header-content">
-        <a href="../index.html" class="btn-retour" style="margin-right: 18px">
+        <a href="index.html" class="btn-retour btn-retour-margin">
           <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
         </a>
         <div class="title-block">
@@ -24,20 +24,20 @@
     </header>
 
     <main class="main-membres">
-      <section
-        class="rapport-section"
-        style="
-          background: #f7fafc;
-          border-radius: 14px;
-          max-width: 900px;
-          margin: 32px auto;
-          padding: 32px;
-        "
-      >
+         <section class="rapport-section custom-rapport-section">
+        <form class="form-rapport custom-form-rapport">
         <form class="form-rapport" style="max-width: 500px; margin: 24px auto">
           <div class="input-group">
-            <label for="mois">Mois concerné</label>
-            <input type="month" id="mois" name="mois" required />
+            <label for="date-depot">Mois concerné</label>
+            <input
+              type="text"
+              id="date-depot"
+              name="date-depot"
+              required
+              pattern="^(0?[1-9]|1[0-2])\/\d{4}$"
+              placeholder="mm/aaaa"
+              title="Format attendu : mois/année, exemple : 06/2024"
+            />
           </div>
           <div class="input-group">
             <label for="total-depots">Total des dépôts</label>
